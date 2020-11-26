@@ -80,7 +80,7 @@ class UI(QMainWindow):
 
         self.tableWidget.setStyleSheet("background-image : url(serversWallpapaer.png) background-size: 200px auto;")
 
-        print("eran")
+
         #titles
         #self.tableWidget.setItem(0, 0, QTableWidgetItem("Value"))
         '''
