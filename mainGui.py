@@ -29,7 +29,7 @@ class UI(QMainWindow):
         return list(dups.keys())
     def __init__(self):
         super(UI, self).__init__()
-        uic.loadUi("pingerGui162.ui", self)
+        uic.loadUi("pingerGui.ui", self)
 
 
         #self.setStyleSheet("background-image : url(wallpaper.png); color: white" )

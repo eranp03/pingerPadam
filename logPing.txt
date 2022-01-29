@@ -48,3 +48,14 @@ Eran Tech,HI-TEC,00:10:16,5.5.5.5 Was Down
 Eran Tech,HI-TEC,00:10:16,127.0.0.1 Was up
 Eran Tech,HI-TEC,00:10:16,192.168.1.167 Was up
 Eran Tech,HI-TEC,00:10:16,5.5.5.5 Was Down
+Eran Tech,HI-TEC,00:12:56,5.5.5.5 Was Down
+Eran Tech,HI-TEC,00:12:56,127.0.0.1 Was up
+Eran Tech,HI-TEC,00:12:56,192.168.1.167 Was up
+Eran Tech,HI-TEC,00:12:56,5.5.5.5 Was Down
+Eran Tech,HI-TEC,00:14:29,5.5.5.5 Was Down
+Eran Tech,HI-TEC,00:14:29,127.0.0.1 Was up
+Eran Tech,HI-TEC,00:14:29,192.168.1.167 Was up
+Eran Tech,HI-TEC,00:15:10,5.5.5.5 Was Down
+Eran Tech,HI-TEC,00:15:10,127.0.0.1 Was up
+Eran Tech,HI-TEC,00:15:10,192.168.1.167 Was up
+Eran Tech,HI-TEC,00:15:10,5.5.5.5 Was Down
