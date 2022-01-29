@@ -16,6 +16,7 @@ Company Name,Company Type,Server role,IP Address | for example:
 ```text
 Eran Tech,HI-TEC,DC1,127.0.0.1
 ```
+Don't forget to save the tableInfo without new lines and only by the template
 # Run Project
 ```text
 mainGui.py
