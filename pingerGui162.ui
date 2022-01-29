@@ -52,19 +52,6 @@
      <string>Send Ping</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>600</x>
-      <y>60</y>
-      <width>101</width>
-      <height>51</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/Logo Gdud/סמל גדוד חדש.png&quot; width=&quot;100&quot; height=&quot;50&quot; /&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-    </property>
-   </widget>
    <widget class="QComboBox" name="comboBoxF">
     <property name="geometry">
      <rect>
@@ -93,7 +80,7 @@
      </font>
     </property>
     <property name="text">
-     <string>Pinger Map 373</string>
+     <string>Pinger Map</string>
     </property>
    </widget>
    <widget class="QComboBox" name="comboBoxTime">
@@ -128,7 +115,7 @@
      <bool>false</bool>
     </property>
     <property name="layoutDirection">
-     <enum>Qt::RightToLeft</enum>
+     <enum>Qt::LeftToRight</enum>
     </property>
     <property name="frameShape">
      <enum>QFrame::Box</enum>
@@ -181,33 +168,20 @@
      </rect>
     </property>
     <property name="text">
-     <string>סנן טבלה</string>
+     <string>Filter Table</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>220</y>
+      <x>10</x>
+      <y>740</y>
       <width>241</width>
       <height>31</height>
      </rect>
     </property>
     <property name="text">
      <string>software v:1.0 © Eran Peer &amp; Amit Dankner 2020</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>20</y>
-      <width>171</width>
-      <height>221</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;img src=&quot;:/Logo Gdud/shobCyberLogo.png&quot; width=&quot;200&quot; height=&quot;200&quot;/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
   </widget>
@@ -217,14 +191,12 @@
      <x>0</x>
      <y>0</y>
      <width>880</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources>
-  <include location="logo.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>

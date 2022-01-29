@@ -24,35 +24,31 @@ class UI(QMainWindow):
 
     def closeEvent(self, event):
         os._exit(1)
-    def getFilterByDivision(divisions):
-        dups = Counter(divisions) - Counter(set(divisions))
+    def getFilterByDivision(companyNames):
+        dups = Counter(companyNames) - Counter(set(companyNames))
         return list(dups.keys())
     def __init__(self):
         super(UI, self).__init__()
         uic.loadUi("pingerGui162.ui", self)
 
-        labelLogoshob = self.findChild(QLabel, "label_2")
-        labelLogoshob.setText("<html><head/><body><p><img src='shobCyberLogo.png' width='200' height='200'/></p></body></html>")
-        labelLogoGdud = self.findChild(QLabel, "label_3")
-        labelLogoGdud.setText("<html><head/><body><p><img src='gdudLogo.png' width='100' height='50'/></p></body></html>")
 
-        #self.setStyleSheet("background-image : url(wallpaper.png)")
+        #self.setStyleSheet("background-image : url(wallpaper.png); color: white" )
 
         def just(self):
             global sleep
             sleep = 60
             set_time = cbT.currentText()
-            if set_time == "15 דקות":
+            if set_time == "15 Minutes":
                 sleep = 15 * 60
-            elif set_time == "30 דקות":
+            elif set_time == "30 Minutes":
                 sleep = 30 * 60
-            elif set_time == "60 דקות":
+            elif set_time == "60 Minutes":
                 sleep = 60 * 60
-            elif set_time == "90 דקות":
+            elif set_time == "90 Minutes":
                 sleep = 90 * 60
-            elif set_time == "דקה":
+            elif set_time == "Minute":
                 sleep =60
-            elif set_time == "30 שניות":
+            elif set_time == "30 Seconds":
                 sleep =30
             else:
                 pass
@@ -64,8 +60,6 @@ class UI(QMainWindow):
         lable = self.findChild(QLabel,"lastTime")
         self.setWindowFlags(QWidget().windowFlags() & QtCore.Qt.CustomizeWindowHint)
         self.setWindowFlags(QWidget().windowFlags() & ~QtCore.Qt.WindowMinMaxButtonsHint)
-        icon = QtGui.QIcon('shobCyberLogo.png')
-        self.setWindowIcon(icon)
         t = time.localtime()
         now = time.strftime("%H:%M:%S", t)
         lable.setText("Wating for ping")
@@ -84,13 +78,13 @@ class UI(QMainWindow):
         #titles
         #self.tableWidget.setItem(0, 0, QTableWidgetItem("Value"))
         '''
-        self.tableWidget.setItem(0, 0, QTableWidgetItem("מסגרת"))
-        self.tableWidget.setItem(0, 1, QTableWidgetItem("תת מסגרת"))
-        self.tableWidget.setItem(0, 2, QTableWidgetItem("כוח קטן"))
-        self.tableWidget.setItem(0, 3, QTableWidgetItem("כתובת IP"))
+        self.tableWidget.setItem(0, 0, QTableWidgetItem("Company name"))
+        self.tableWidget.setItem(0, 1, QTableWidgetItem("Company type"))
+        self.tableWidget.setItem(0, 2, QTableWidgetItem("Server role"))
+        self.tableWidget.setItem(0, 3, QTableWidgetItem("IP Address"))
         '''
 
-        self.tableWidget.setHorizontalHeaderLabels(['מסגרת', 'תת מסגרת', 'כוח קטן', 'כתובת IP'])
+        self.tableWidget.setHorizontalHeaderLabels(['Company name', 'Company Type', 'Server role', 'IP Address'])
 
         #bold titles
         myFont = QtGui.QFont()
@@ -106,9 +100,9 @@ class UI(QMainWindow):
 
 
         #get data from the tableInfo file
-        divisions = []
-        unitsAll = []
-        commanders = []
+        companyNames = []
+        companyServers = []
+        companyTypes = []
         hosts = []
         alive = []
         dead = []
@@ -122,15 +116,15 @@ class UI(QMainWindow):
 
         #put the data in different arrays
         for i in range(length):
-            divisions.append(linesInfo[i].split(',')[0])
-            unitsAll.append(linesInfo[i].split(',')[1])
-            commanders.append(linesInfo[i].split(',')[2])
+            companyNames.append(linesInfo[i].split(',')[0])
+            companyServers.append(linesInfo[i].split(',')[1])
+            companyTypes.append(linesInfo[i].split(',')[2])
             hosts.append(linesInfo[i].split(',')[3])
         line = 0
 
 
-        dups = Counter(divisions) - Counter(set(divisions))
-        divisionsFilter = list(dups.keys())
+        dups = Counter(companyNames) - Counter(set(companyNames))
+        companyNamesFilter = list(dups.keys())
 
         for host in range(len(hosts)):
             a = hosts[host].split('\n')[0]
@@ -140,9 +134,9 @@ class UI(QMainWindow):
 
         #put the data on the gui Table
         for j in range(length) :
-            self.tableWidget.setItem(line, 0, QTableWidgetItem(divisions[j]))
-            self.tableWidget.setItem(line, 1, QTableWidgetItem(unitsAll[j]))
-            self.tableWidget.setItem(line, 2, QTableWidgetItem(commanders[j]))
+            self.tableWidget.setItem(line, 0, QTableWidgetItem(companyNames[j]))
+            self.tableWidget.setItem(line, 1, QTableWidgetItem(companyServers[j]))
+            self.tableWidget.setItem(line, 2, QTableWidgetItem(companyTypes[j]))
             self.tableWidget.setItem(line, 3, QTableWidgetItem(filter_host[j]))
             line+=1
 
@@ -210,11 +204,11 @@ class UI(QMainWindow):
                     if p.poll():
                         # print(filter_host[host] + " is down")
                         logfile = open('logPing.txt', 'a', encoding='utf-8')
-                        logfile.write(divisions[host - 1] + "," + unitsAll[host - 1] + "," + nowTime + "," + filter_host[host - 1] + " Was Down" + "\n")
+                        logfile.write(companyNames[host - 1] + "," + companyServers[host - 1] + "," + nowTime + "," + filter_host[host - 1] + " Was Down" + "\n")
                         logfile.close()
                     else:
                         logfile = open('logPing.txt', 'a', encoding='utf-8')
-                        logfile.write(divisions[host - 1] + "," + unitsAll[host - 1] + "," + nowTime + "," + filter_host[host - 1] + " Was up" + "\n")
+                        logfile.write(companyNames[host - 1] + "," + companyServers[host - 1] + "," + nowTime + "," + filter_host[host - 1] + " Was up" + "\n")
                         logfile.close()
                 time.sleep(1800)
 
@@ -226,15 +220,15 @@ class UI(QMainWindow):
 
         #FilterByDivision
         cb = self.findChild(QComboBox, "comboBoxF")
-        cb.addItems(divisionsFilter)
+        cb.addItems(companyNamesFilter)
 
         cbT = self.findChild(QComboBox, "comboBoxTime")
-        cbT.addItem("30 שניות")
-        cbT.addItem("דקה")
-        cbT.addItem("15 דקות")
-        cbT.addItem("30 דקות")
-        cbT.addItem("60 דקות")
-        cbT.addItem("90 דקות")
+        cbT.addItem("30 Seconds")
+        cbT.addItem("Minute")
+        cbT.addItem("15 Minutes")
+        cbT.addItem("30 Minutes")
+        cbT.addItem("60 Minutes")
+        cbT.addItem("90 Minutes")
 
 
         #self.tableWidget.item(2, 3).setBackground(QtGui.QColor(128, 255, 0))
